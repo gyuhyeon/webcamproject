@@ -1,5 +1,5 @@
 {
-  "name": "socket connection for webcam project",
+  "name": "socket-connection-for-webcam-project",
   "version": "0.0.0",
   "description": "A simple app for webpage feed / socket connection",
   "main": "index.js",

@@ -4,14 +4,17 @@ var http = require('http');
 var server = http.createServer(app);
 var io = require('socket.io')(server);
 
-var port=3000;
+var port=8000;
 server.listen(port);
 
 // Routing
 app.use(express.static(__dirname + '/public'));
 
-// Chatroom
 
+
+
+
+// Chatroom
 var numUsers = 0;
 
 io.on('connection', function (socket) {
@@ -52,7 +55,7 @@ io.on('connection', function (socket) {
   });
 
   // when the client emits 'stop typing', we broadcast it to others
-  socket.on('stop typing', function () {
+  socket.on('', function () {
     socket.broadcast.emit('stop typing', {
       username: socket.username
     });
