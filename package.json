@@ -1,0 +1,11 @@
+{
+  "name": "socket connection for webcam project",
+  "version": "0.0.0",
+  "description": "A simple app for webpage feed / socket connection",
+  "main": "index.js",
+  "author": "Gyuhyeon Lee",
+  "dependencies": {
+    "express": "^4.13.4",
+    "socket.io": "^1.4.5"
+  }
+}
