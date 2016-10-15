@@ -1,0 +1,8 @@
+<good approach>
+enable CORS server side :
+https://www.html5rocks.com/en/tutorials/cors/
+https://github.com/Motion-Project/motion/blob/master/webhttpd.c
+
+<bad approach>
+enable CORS client side : https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi
+

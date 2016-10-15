@@ -1,13 +1,56 @@
-var img;  // Declare variable 'img'.
+//on-demand global mode for p5js
+new p5();
 
-function setup() {
-  createCanvas(720, 400);
-  img = loadImage("https://www.google.co.kr/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwi-25jG-dvPAhUMJZQKHSyfDYgQjRwIBw&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DtntOCGkgt98&psig=AFQjCNHgCCTvAX1XZ8rIsC1NCPh1FkR3Fg&ust=1476591339713581");  // Load the image
+var canvas;
+var img;  // Declare variable 'img'.
+var video=[];
+var gridwidth=300;
+var gridheight=300;
+
+var current=0;
+
+
+function setup(){
+	canvas = createCanvas(900, 900);
+	for(var i=0; i<9; ++i){
+		/*
+		video[i] = createVideo(['https://dl.dropboxusercontent.com/u/90141299/catbowl.mov']);
+		video[i].loop();
+		video[i].hide();
+		*/
+		video[i] = loadImage('http://cam6284208.miemasu.net/nphMotionJpeg?Resolution=640x480&Quality=Clarity.mjpeg');
+	}
+	//video = loadImage(['http://217.7.233.140/cgi-bin/faststream.jpg?stream=full&fps=0']);
+	//video.loop();
+	//video.hide();
+	//img = loadImage("https://s.graphiq.com/sites/default/files/stories/t2/tiny_cat_12573_8950.jpg");  // Load the image
 }
 
-function draw() {
-  // Displays the image at its actual size at point (0,0)
-  image(img, 0, 0);
-  // Displays the image at point (0, height/2) at half size
-  image(img, 0, height/2, img.width/2, img.height/2);
+function draw(){
+	/*
+	for(var i=0; i<3; ++i){
+		for(var j=0; j<3; ++j){
+			rect(gridwidth*i,gridheight*j,gridwidth-1,gridheight-1);
+		}
+	}*/
+	for(var i=0; i<3; ++i){
+		for(var j=0; j<3; ++j){
+			//rect(gridwidth*i,gridheight*j,gridwidth-1,gridheight-1);
+			if(current==i*3+j)
+			image(video[i*3+j],gridwidth*j,gridheight*i,gridwidth,gridheight);
+		}
+	}
+	//image(img, 0, 0);
+}
+
+function mousePressed() {
+	current++;
+  /*saveFrames("out", "png", 1, 25, function(data){
+    print(data);
+  });*/
+}
+
+function keyPressed() {
+  if (keyCode === LEFT_ARROW)
+  	save(canvas, 'output.jpg');
 }
