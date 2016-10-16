@@ -18,7 +18,7 @@ function setup(){
 		video[i].loop();
 		video[i].hide();
 		*/
-		video[i] = loadImage('http://cam6284208.miemasu.net/nphMotionJpeg?Resolution=640x480&Quality=Clarity.mjpeg');
+		video[i] = loadImage('http://122.46.145.125:18081/');
 	}
 	//video = loadImage(['http://217.7.233.140/cgi-bin/faststream.jpg?stream=full&fps=0']);
 	//video.loop();
@@ -51,6 +51,6 @@ function mousePressed() {
 }
 
 function keyPressed() {
-  if (keyCode === LEFT_ARROW)
+  if (keyCode === ENTER)
   	save(canvas, 'output.jpg');
 }
