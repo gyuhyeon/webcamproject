@@ -1,7 +1,20 @@
 <good approach>
 enable CORS server side :
 https://www.html5rocks.com/en/tutorials/cors/
-https://github.com/Motion-Project/motion/blob/master/webhttpd.c
+https://github.com/Motion-Project/motion/blob/master/webhttpd.c, stream.c
+
+raspberry pi setup :
+git pull https://github.com/Motion-Project/motion.git
+apt-get autoconf
+autoreconf
+./configure
+make
+make install
+https://pimylifeup.com/raspberry-pi-webcam-server/
+
+sudo motion
+ps -ef
+sudo kill 00000
 
 <bad approach>
 enable CORS client side : https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi
