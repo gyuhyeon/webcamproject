@@ -4,6 +4,8 @@ var http = require('http');
 var server = http.createServer(app);
 var io = require('socket.io')(server);
 
+var request=require('request');
+
 var port=8000;
 server.listen(port);
 
@@ -14,7 +16,10 @@ app.use(function(req, res, next) {
   next();
 });
 app.use(express.static(__dirname + '/public'));
-
+app.get('/stream1',function(req,res){
+  var url="http://122.46.145.125:18081/"
+  request(url).pipe(res);
+});
 
 
 

@@ -19,7 +19,7 @@ function setup(){
 		video[i].loop();
 		video[i].hide();
 		*/
-		video[i] = loadImage('http://122.46.145.125:18081/');
+		video[i] = loadImage("crowdvoteapp.com/stream1");
 	}
 	//video = loadImage(['http://217.7.233.140/cgi-bin/faststream.jpg?stream=full&fps=0']);
 	//video.loop();
