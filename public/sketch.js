@@ -44,6 +44,10 @@ function draw(){
 	//image(img, 0, 0);
 }
 
+function tempcounterincrease(){
+	current++;
+}
+
 function mousePressed() {
 	//current++;
   /*saveFrames("out", "png", 1, 25, function(data){
