@@ -47,6 +47,10 @@ function draw(){
 function tempcounterincrease(){
 	current++;
 }
+function tempcounterreset(){
+	background(255);
+	current=0;
+}
 
 function mousePressed() {
 	//current++;
