@@ -12,6 +12,7 @@ var current=0;
 
 function setup(){
 	canvas = createCanvas(900, 900);
+	canvas.position(50,50);
 	for(var i=0; i<9; ++i){
 		/*
 		video[i] = createVideo(['https://dl.dropboxusercontent.com/u/90141299/catbowl.mov']);
@@ -44,7 +45,7 @@ function draw(){
 }
 
 function mousePressed() {
-	current++;
+	//current++;
   /*saveFrames("out", "png", 1, 25, function(data){
     print(data);
   });*/

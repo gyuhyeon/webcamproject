@@ -18540,6 +18540,7 @@ p5.prototype.loadImage = function(path, successCallback, failureCallback) {
   }
 
   //start loading the image
+  img.crossOrigin = 'Anonymous';
   img.src = path;
 
   return pImg;
