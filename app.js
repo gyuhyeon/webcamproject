@@ -66,7 +66,7 @@ app.post('/print', function(req,res){
   // strip off the data: url prefix to get just the base64-encoded bytes
   var data = img.replace(/^data:image\/\w+;base64,/, "");
   var buf = new Buffer(data, 'base64');
-  fs.writeFile('public/image.png', buf);
+  fs.writeFile('public/print.png', buf);
   console.log('print');
   io.sockets.emit('print');
 });
@@ -76,7 +76,7 @@ app.post('/print', function(req,res){
 
 
 io.on('connection', function (socket) {
-
+  console.log('User connected');
   // when the client emits 'camera capture', this listens and executes
   socket.on('camera capture', function (data) {
     // we broadcast to everyone execute 'camera capture'
