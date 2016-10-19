@@ -39,7 +39,7 @@ app.post('/print', function(req,res){
   // strip off the data: url prefix to get just the base64-encoded bytes
   var data = img.replace(/^data:image\/\w+;base64,/, "");
   var buf = new Buffer(data, 'base64');
-  fs.writeFile('image.png', buf);
+  fs.writeFile('public/image.png', buf);
   console.log('print');
   io.sockets.emit('print');
 });
