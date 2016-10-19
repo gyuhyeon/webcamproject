@@ -12,9 +12,9 @@ var port=8000;
 server.listen(port);
 
 // Routing
-app.use(bodyParser.json({limit:'5mb'}));
+app.use(bodyParser.json({limit:'20mb'}));
 //querystring : false, qs library : true
-app.use(bodyParser.urlencoded({extended: false, limit:'5mb'}));
+app.use(bodyParser.urlencoded({extended: false, limit:'20mb'}));
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
