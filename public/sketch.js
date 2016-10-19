@@ -22,6 +22,14 @@ function setup(){
 		*/
 		video[i] = loadImage("http://crowdvoteapp.com/stream"+(i+1));
 	}
+
+	// static/local video or some shit *wait, this shouldn't be external links like this. It should be done by proxy...
+	/*video[3] = loadImage("http://writm.com/wp-content/uploads/2016/08/Cat-hd-wallpapers.jpg");
+	video[4] = loadImage("https://pixabay.com/static/uploads/photo/2016/05/18/20/57/cat-1401557_960_720.jpg");
+	video[5] = loadImage("https://pixabay.com/static/uploads/photo/2014/03/29/09/17/cat-300572_960_720.jpg");
+	video[6] = loadImage("http://www.rd.com/wp-content/uploads/sites/2/2016/02/06-train-cat-shake-hands.jpg");
+	video[7] = loadImage("http://rollycat.com/wp-content/uploads/2014/09/apple-mac-cat-face-like-angel-soul_342655.jpg");
+	video[8] = loadImage("https://s-media-cache-ak0.pinimg.com/564x/29/9e/56/299e56ab07c75af6407289ecc4ab1dd6.jpg");*/
 	//video = loadImage(['http://217.7.233.140/cgi-bin/faststream.jpg?stream=full&fps=0']);
 	//video.loop();
 	//video.hide();

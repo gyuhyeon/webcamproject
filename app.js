@@ -36,27 +36,27 @@ app.get('/stream3',function(req,res){
   request(url).pipe(res);
 });
 app.get('/stream4',function(req,res){
-  var url="http://12.154.142.171/axis-cgi/mjpg/video.cgi?camera=3&resolution=352x240"
+  var url="http://writm.com/wp-content/uploads/2016/08/Cat-hd-wallpapers.jpg"
   request(url).pipe(res);
 });
 app.get('/stream5',function(req,res){
-  var url="http://82.127.10.188:5000/image"
+  var url="https://pixabay.com/static/uploads/photo/2016/05/18/20/57/cat-1401557_960_720.jpg"
   request(url).pipe(res);
 });
 app.get('/stream6',function(req,res){
-  var url="http://195.196.231.95/cgi-bin/faststream.jpg?stream=full&fps=24"
+  var url="https://pixabay.com/static/uploads/photo/2014/03/29/09/17/cat-300572_960_720.jpg"
   request(url).pipe(res);
 });
 app.get('/stream7',function(req,res){
-  var url="http://193.77.56.188/nphMotionJpeg?Resolution=640x480Quality=Clarity"
+  var url="http://www.rd.com/wp-content/uploads/sites/2/2016/02/06-train-cat-shake-hands.jpg"
   request(url).pipe(res);
 });
 app.get('/stream8',function(req,res){
-  var url="http://120.151.100.155/mjpg/video.mjpg"
+  var url="http://rollycat.com/wp-content/uploads/2014/09/apple-mac-cat-face-like-angel-soul_342655.jpg"
   request(url).pipe(res);
 });
 app.get('/stream9',function(req,res){
-  var url="http://217.86.174.228:8081/mjpg/video.mjpg"
+  var url="https://s-media-cache-ak0.pinimg.com/564x/29/9e/56/299e56ab07c75af6407289ecc4ab1dd6.jpg"
   request(url).pipe(res);
 });
 //this part needs to be migrated to raspberry pi.
