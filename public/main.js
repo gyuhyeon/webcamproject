@@ -1,5 +1,3 @@
-
-
   // Initialize variables
 
   // Prompt for setting a username
@@ -33,8 +31,15 @@
     videostate[int(data)-1]=false;
   }
 
+//this print function's url needs to be migrated to raspberry pi.
   function print(){
-    
+    $.ajax({
+      type:"POST",
+      url:"print",
+      data:{
+        imgBase64:canvas.canvas.toDataURL()
+      }
+    });
     socket.emit('print');
   }
 
@@ -48,5 +53,7 @@
 
   //Whenever the server emits 'print', revert page to default.
   socket.on('print', function () {
-
+    for(var i=0; i<9; ++i){
+      videostate[i]=true;
+    }
   });

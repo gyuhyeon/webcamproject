@@ -5,6 +5,7 @@
   "main": "index.js",
   "author": "Gyuhyeon Lee",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.13.4",
     "request": "^2.75.0",
     "socket.io": "^1.4.5"
