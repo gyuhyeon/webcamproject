@@ -41,6 +41,7 @@ app.post('/print', function(req,res){
   var buf = new Buffer(data, 'base64');
   fs.writeFile('image.png', buf);
   console.log('print');
+  io.sockets.emit('print');
 });
 
 
