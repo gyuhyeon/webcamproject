@@ -2,7 +2,7 @@
 
   // Prompt for setting a username
   var username = prompt("현재 위치를 입력해주세요(1~9) :");
-  document.getElementById("mainimgframe").src='http://crowdvoteapp.com/stream'+(username+1)
+  document.getElementById("mainimgframe").src='http://crowdvoteapp.com/stream'+(int(username)+1)
 
   var socket = io();
 
