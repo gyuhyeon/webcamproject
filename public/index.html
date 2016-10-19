@@ -2,9 +2,7 @@
 <head>
   <meta charset="UTF-8">
 
-  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="/main.js"></script>
+
 
   <script language="javascript" type="text/javascript" src="/libraries/p5.js"></script>
   <!-- uncomment lines below to include extra p5 libraries -->
@@ -16,15 +14,22 @@
 
 <body>
 
-	<button type="button" onclick="tempcounterincrease()">나는 귀여운 버튼 ._.</button>
-	<button type="button" onclick="tempcounterreset()">고냥이 죽이기 ㅜㅜ</button>
-	<script type="text/javascript">
-	
+	<button type="button" onclick="capture()">캡쳐ㅇㅅㅇ</button>
+	<button type="button" onclick="print()">프린트(임시버튼)</button>
+
+
+	<script type="text/javascript">	
 		setInterval(function(){
 			for(var i=0; i<9; ++i){
 				video[i] = loadImage('http://crowdvoteapp.com/stream1');
+				//video[i] = loadImage('http://camera.nton.lviv.ua/mjpg/video.mjpg');
 	}},30);
 	</script>
+
+
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/main.js"></script>
 
 </body>
 </html>
