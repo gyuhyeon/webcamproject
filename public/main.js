@@ -2,7 +2,7 @@
 
   // Prompt for setting a userid
   var userid = prompt("현재 위치를 입력해주세요(1~3) :");
-  document.getElementById("mainimgframe").src='http://crowdvoteapp.com/stream'+userid)
+  document.getElementById("mainimgframe").src='http://crowdvoteapp.com/stream'+userid;
 
   var socket = io();
 
