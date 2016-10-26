@@ -158,7 +158,7 @@ app.post('/capture', function(req,res){
   var data = img.replace(/^data:image\/\w+;base64,/, "");
   var buf = new Buffer(data, 'base64');
   //sync so that capture emit can be sent when it's done
-  fs.writeFileSync('public/capture'+req.body.imgId+'.jpg', buf);
+  fs.writeFileSync('public/capture'+(parseInt(req.body.imgId)+11)+'.jpg', buf);
   console.log('capture');
   videostatus[parseInt(req.body.imgId)-1]=true;
   io.sockets.emit('capture', {
