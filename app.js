@@ -127,6 +127,10 @@ app.get('/stream25',function(req,res){
   request(url).pipe(res);
 });
 */
+
+//this is for keeping track of current print phase(alive video feed, captured feed)
+var videostatus = [false, false, false];
+
 //this part needs to be migrated to raspberry pi.
 app.post('/print', function(req,res){
   //saving the incoming image
@@ -139,6 +143,9 @@ app.post('/print', function(req,res){
   fs.writeFileSync('public/print.jpg', buf);
   console.log('print');
   io.sockets.emit('print');
+
+  //reset videostatus
+  videostatus = [false, false, false];
 
   //need code to send request to raspberry pi for printing
 });
@@ -153,6 +160,7 @@ app.post('/capture', function(req,res){
   //sync so that capture emit can be sent when it's done
   fs.writeFileSync('public/capture'+req.body.imgId+'.jpg', buf);
   console.log('capture');
+  videostatus[int(req.body.imgId)-1]
   io.sockets.emit('capture', {
     userid: req.body.imgId
   });
@@ -161,9 +169,11 @@ app.post('/capture', function(req,res){
 
 // Socket.io
 
-
 io.on('connection', function (socket) {
   console.log('User connected');
+  socket.emit('init', {
+    videostatus : videostatus
+  });
   // when the client emits 'camera capture', this listens and executes
   /*
   socket.on('camera capture', function (data) {

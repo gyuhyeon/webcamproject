@@ -13,7 +13,7 @@
     c.height = img.height;
     c.style.display='none';
     var ctx = c.getContext('2d');
-    ctx.drawImage(img, 0, 0);
+    ctx.drawImage(img, 0, 0, img.width, img.height);
     $.ajax({
       type:"POST",
       url:"capture",
@@ -27,8 +27,8 @@
   }
 
   function applyCapture(data){
-    video[data-1] = loadImage("http://crowdvoteapp.com/capture"+data+".jpg");
-    videostate[data-1] = true;
+    video[int(data)-1] = loadImage("http://crowdvoteapp.com/capture"+data+".jpg");
+    videostate[int(data)-1] = true;
     document.getElementById('camera_'+data).style.display='none';
   }
 
@@ -47,6 +47,14 @@
 
 
   // Socket events
+
+  socket.on('init', function (data) {
+    for(var i=0; i<3; ++i){
+      if(data.videostatus[i]==true){
+        applyCapture(i+1);
+      }
+    }
+  });
 
   // Whenever the server emits 'camera capture', update the canvas.
   socket.on('capture', function (data) {
