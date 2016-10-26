@@ -4,9 +4,9 @@ new p5();
 var canvas;
 var img;  // Declare variable 'img'.
 var video=[];
-var videostate=[true, true, true, true, true, true, true, true, true];
-var gridwidth=300;
-var gridheight=300;
+var videostate=[false, false, false, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true];
+var gridwidth=180;
+var gridheight=180;
 
 var current=0;
 
@@ -14,13 +14,14 @@ var current=0;
 function setup(){
 	canvas = createCanvas(900, 900);
 	canvas.position(50,50);
-	for(var i=0; i<9; ++i){
+	for(var i=0; i<25; ++i){
 		/*
 		video[i] = createVideo(['https://dl.dropboxusercontent.com/u/90141299/catbowl.mov']);
 		video[i].loop();
 		video[i].hide();
 		*/
-		video[i] = loadImage("http://crowdvoteapp.com/stream"+(i+1));
+		if(videostate[i]==true)
+			video[i] = loadImage("http://crowdvoteapp.com/capture"+(i+1)+".jpg");
 	}
 
 	// static/local video or some shit *wait, this shouldn't be external links like this. It should be done by proxy...
@@ -43,11 +44,11 @@ function draw(){
 			rect(gridwidth*i,gridheight*j,gridwidth-1,gridheight-1);
 		}
 	}*/
-	for(var i=0; i<3; ++i){
-		for(var j=0; j<3; ++j){
+	for(var i=0; i<5; ++i){
+		for(var j=0; j<5; ++j){
 			//rect(gridwidth*i,gridheight*j,gridwidth-1,gridheight-1);
-			if(videostate[i*3+j]==true){
-				image(video[i*3+j],gridwidth*j,gridheight*i,gridwidth,gridheight);
+			if(videostate[i*5+j]==true){
+				image(video[i*5+j],gridwidth*j,gridheight*i,gridwidth,gridheight);
 			}
 		}
 	}

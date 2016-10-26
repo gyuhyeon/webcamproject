@@ -1,35 +1,35 @@
   // Initialize variables
 
-  // Prompt for setting a username
-  var username = prompt("현재 위치를 입력해주세요(1~9) :");
-  document.getElementById("mainimgframe").src='http://crowdvoteapp.com/stream'+(int(username))
+  // Prompt for setting a userid
+  var userid = prompt("현재 위치를 입력해주세요(1~3) :");
+  document.getElementById("mainimgframe").src='http://crowdvoteapp.com/stream'+(int(userid))
 
   var socket = io();
 
-  // Sends a chat message
-  function sendMessage () {
-    var message = $inputMessage.val();
-    // Prevent markup from being injected into the message
-    message = cleanInput(message);
-    // if there is a non-empty message and a socket connection
-    if (message && connected) {
-      $inputMessage.val('');
-      addChatMessage({
-        username: username,
-        message: message
-      });
-      // tell server to execute 'new message' and send along one parameter
-      socket.emit('new message', message);
-    }
-  }
-
   function capture(){
-    var data = username;
-    socket.emit('camera capture', data);
+    var c = document.createElement('canvas');
+    var img = document.getElementById('camera_'+userid);
+    c.width = img.width;
+    c.height = img.height;
+    c.style.display='none';
+    var ctx = c.getContext('2d');
+    ctx.drawImage(img, 0, 0);
+    $.ajax({
+      type:"POST",
+      url:"capture",
+      data:{
+        imgId:userid,
+        imgBase64:c.toDataURL()
+      }
+    });
+    //no need, it's POST anyway.
+    //socket.emit('camera capture', data);
   }
 
   function applyCapture(data){
-    videostate[int(data)-1]=false;
+    video[data-1] = loadImage("http://crowdvoteapp.com/capture"+data+".jpg");
+    videostate[data-1] = true;
+    document.getElementById('camera_'+data).style.display='none';
   }
 
 //this print function's url needs to be migrated to raspberry pi.
@@ -41,20 +41,25 @@
         imgBase64:canvas.canvas.toDataURL()
       }
     });
-    socket.emit('print');
+    //no need, it's POST anyway.
+    //socket.emit('print');
   }
 
 
   // Socket events
 
   // Whenever the server emits 'camera capture', update the canvas.
-  socket.on('camera capture', function (data) {
-    applyCapture(data.username);
+  socket.on('capture', function (data) {
+    applyCapture(data.userid);
   });
 
   //Whenever the server emits 'print', revert page to default.
   socket.on('print', function () {
+    alert('프린트가 완료되었습니다. 페이지가 리셋됩니다.');
+    window.location.reload();
+    /*
     for(var i=0; i<9; ++i){
       videostate[i]=true;
     }
+    */
   });
