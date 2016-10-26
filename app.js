@@ -153,7 +153,9 @@ app.post('/capture', function(req,res){
   //sync so that capture emit can be sent when it's done
   fs.writeFileSync('public/capture'+req.body.imgId+'.jpg', buf);
   console.log('capture');
-  io.sockets.emit('capture');
+  io.sockets.emit('capture', {
+    userid: req.body.imgId
+  });
 });
 
 
@@ -167,7 +169,7 @@ io.on('connection', function (socket) {
   socket.on('camera capture', function (data) {
     // we broadcast to everyone execute 'camera capture'
     io.sockets.emit('camera capture', {
-      username: data
+      userid: data
     });
   });
   */
