@@ -160,7 +160,7 @@ app.post('/capture', function(req,res){
   //sync so that capture emit can be sent when it's done
   fs.writeFileSync('public/capture'+req.body.imgId+'.jpg', buf);
   console.log('capture');
-  videostatus[int(req.body.imgId)-1]
+  videostatus[int(req.body.imgId)-1]=true;
   io.sockets.emit('capture', {
     userid: req.body.imgId
   });
