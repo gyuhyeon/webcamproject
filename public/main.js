@@ -27,7 +27,7 @@
   }
 
   function applyCapture(data){
-    video[parseInt(data)+10] = loadImage("http://crowdvoteapp.com/capture"+parseInt(data+11)+".jpg");
+    video[parseInt(data)+10] = loadImage("http://crowdvoteapp.com/capture"+parseInt(data)+11+".jpg");
     videostate[parseInt(data)+10] = true;
     document.getElementById('camera_'+data).style.display='none';
   }
