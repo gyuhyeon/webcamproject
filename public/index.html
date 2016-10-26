@@ -13,19 +13,21 @@
 </head>
 
 <body>
-
+<!---
 	<button type="button" onclick="capture()">캡쳐ㅇㅅㅇ</button>
 	<button type="button" onclick="print()">프린트(임시버튼)</button>
-
+-->
 
 	<script type="text/javascript">	
-		setInterval(function(){
+		/*setInterval(function(){
 			for(var i=0; i<3; ++i){
 				video[i] = loadImage('http://crowdvoteapp.com/stream'+(i+1));
 			}
-	},100);
+	},100);*/
 	</script>
-
+	<img id="camera_1" style="position:absolute;top:50px;left:50px;width:180px;height:180px" src="http://crowdvoteapp.com/stream1"/>
+	<img id="camera_1" style="position:absolute;top:50px;left:230px;width:180px;height:180px" src="http://crowdvoteapp.com/stream2"/>
+	<img id="camera_1" style="position:absolute;top:50px;left:410px;width:180px;height:180px" src="http://crowdvoteapp.com/stream3"/>
 	<img id="mainimgframe" style="position:absolute;top:890px;left:225px;width:450px;height:450px" onclick="capture()"/>
 
   <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
