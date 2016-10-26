@@ -2,7 +2,7 @@
 
   // Prompt for setting a userid
   var userid = prompt("현재 위치를 입력해주세요(1~3) :");
-  document.getElementById("mainimgframe").src='http://crowdvoteapp.com/stream'+(int(userid))
+  document.getElementById("mainimgframe").src='http://crowdvoteapp.com/stream'+userid)
 
   var socket = io();
 
@@ -27,8 +27,8 @@
   }
 
   function applyCapture(data){
-    video[int(data)-1] = loadImage("http://crowdvoteapp.com/capture"+data+".jpg");
-    videostate[int(data)-1] = true;
+    video[parseInt(data)-1] = loadImage("http://crowdvoteapp.com/capture"+data+".jpg");
+    videostate[parseInt(data)-1] = true;
     document.getElementById('camera_'+data).style.display='none';
   }
 
