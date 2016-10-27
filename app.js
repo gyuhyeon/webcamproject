@@ -146,7 +146,11 @@ app.post('/print', function(req,res){
    fs.writeFileSync('public/print.jpg', buf);
    console.log('print');
    io.sockets.emit('print');
+
    //need code to send request to raspberry pi for printing
+
+   //post request needs to have a response
+   res.json({msg:'print success'});
   }
 
 });
@@ -165,6 +169,8 @@ app.post('/capture', function(req,res){
   io.sockets.emit('capture', {
     userid: req.body.imgId
   });
+  //post request needs to have a response
+  res.json({msg:'capture success'});
 });
 
 

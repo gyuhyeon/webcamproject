@@ -36,6 +36,9 @@
     //not sure, but I think draw() seems to be having problems due to loadImage being async? -> (hopefully) solved by making draw() more safe
     draw();
     if(videostate[11]==true&&videostate[12]==true&&videostate[13]==true&&userid==1){
+      videostate[11]=false;
+      videostate[12]=false;
+      videostate[13]=false;
       print();
     }
     
