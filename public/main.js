@@ -32,7 +32,7 @@
     document.getElementById('camera_'+data).style.display='none';
     //ensure canvas was updated, and POST print request only from userid 1(main)
     draw();
-    if(videostate[0]==true&&videostate[1]==true&&videostate[2]==true&&userid==1){
+    if(videostate[10]==true&&videostate[11]==true&&videostate[12]==true&&userid==1){
       print();
     }
   }
