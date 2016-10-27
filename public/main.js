@@ -27,14 +27,18 @@
   }
 
   function applyCapture(data){
+    //data:1,2,3
     video[parseInt(data)+10] = loadImage("http://crowdvoteapp.com/capture"+(parseInt(data)+11)+".jpg");
     videostate[parseInt(data)+10] = true;
     document.getElementById('camera_'+data).style.display='none';
     //ensure canvas was updated, and POST print request only from userid 1(main)
+    
+    //not sure, but I think draw() seems to be having problems due to loadImage being async? -> (hopefully) solved by making draw() more safe
     draw();
-    if(videostate[10]==true&&videostate[11]==true&&videostate[12]==true&&userid==1){
+    if(videostate[11]==true&&videostate[12]==true&&videostate[13]==true&&userid==1){
       print();
     }
+    
   }
 
 //this print function's url needs to be migrated to raspberry pi.

@@ -47,7 +47,7 @@ function draw(){
 	for(var i=0; i<5; ++i){
 		for(var j=0; j<5; ++j){
 			//rect(gridwidth*i,gridheight*j,gridwidth-1,gridheight-1);
-			if(videostate[i*5+j]==true){
+			if(videostate[i*5+j]==true && (typeof video[i]!='undefined') ){
 				image(video[i*5+j],gridwidth*j,gridheight*i,gridwidth,gridheight);
 			}
 		}
