@@ -46,20 +46,23 @@
   }
 
 //this print function's url needs to be migrated to raspberry pi.
-  async function print(){
-    await sleep(1000);
-    videostate[11]=false;
-    videostate[12]=false;
-    videostate[13]=false;
-    $.ajax({
-      type:"POST",
-      url:"print",
-      data:{
-        imgBase64:canvas.canvas.toDataURL()
-      }
+  function print(){
+    sleep(1000).then(() => {
+
+      videostate[11]=false;
+      videostate[12]=false;
+      videostate[13]=false;
+      $.ajax({
+       type:"POST",
+       url:"print",
+       data:{
+         imgBase64:canvas.canvas.toDataURL()
+       }
+     });
+     //no need, it's POST anyway.
+     //socket.emit('print');
+
     });
-    //no need, it's POST anyway.
-    //socket.emit('print');
   }
 
 
