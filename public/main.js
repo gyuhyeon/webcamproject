@@ -30,6 +30,11 @@
     video[parseInt(data)+10] = loadImage("http://crowdvoteapp.com/capture"+(parseInt(data)+11)+".jpg");
     videostate[parseInt(data)+10] = true;
     document.getElementById('camera_'+data).style.display='none';
+    //ensure canvas was updated, and POST print request only from userid 1(main)
+    draw();
+    if(videostate[0]==true&&videostate[1]==true&&videostate[2]==true&&userid==1){
+      print();
+    }
   }
 
 //this print function's url needs to be migrated to raspberry pi.
