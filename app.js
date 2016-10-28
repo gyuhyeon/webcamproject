@@ -39,6 +39,9 @@ app.get('/stream1',function(req,res){
   req.on('end', function(){
     pipe.end()
   });
+  req.on('finish', function(){
+    pipe.end()
+  });
 });
 app.get('/stream2',function(req,res){
   var url="http://camera.nton.lviv.ua/mjpg/video.mjpg"
@@ -52,6 +55,9 @@ app.get('/stream2',function(req,res){
   req.on('end', function(){
     pipe.end()
   });
+  req.on('finish', function(){
+    pipe.end()
+  });
 });
 app.get('/stream3',function(req,res){
   var url="http://194.248.190.92/mjpg/video.mjpg"
@@ -63,6 +69,9 @@ app.get('/stream3',function(req,res){
     pipe.end();
   });
   req.on('end', function(){
+    pipe.end()
+  });
+  req.on('finish', function(){
     pipe.end()
   });
 });
