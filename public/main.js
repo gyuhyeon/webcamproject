@@ -1,7 +1,7 @@
   // Initialize variables
 
-  // Prompt for setting a userid
-  var userid = prompt("현재 위치를 입력해주세요(1~3) :");
+  // Prompt for setting a userid(now hardcoded in html)
+  //var userid = prompt("현재 위치를 입력해주세요(1~3) :");
   //document.getElementById("mainimgframe").src='http://crowdvoteapp.com/stream'+userid;
 
   var socket = io();
@@ -83,7 +83,7 @@
 
   //Whenever the server emits 'print', revert page to default.
   socket.on('print', function () {
-    alert('프린트가 완료되었습니다. 페이지가 리셋됩니다.');
+    //alert('프린트가 완료되었습니다. 페이지가 리셋됩니다.');
     window.location.reload();
     /*
     for(var i=0; i<9; ++i){
