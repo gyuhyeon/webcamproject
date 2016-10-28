@@ -30,6 +30,12 @@ app.get('/stream1',function(req,res){
   var url="http://camera.nton.lviv.ua/mjpg/video.mjpg"
   //var url="http://122.46.145.125:18081/"
   var pipe=request(url).pipe(res);
+  pipe.on('error', function(){
+    console.log('disconnected!');
+  })
+  pipe.on('err', function(){
+    console.log('disconnected!!');
+  })
   req.on('close', function(){
     pipe.end();
   });
