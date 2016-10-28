@@ -5,8 +5,8 @@ var canvas;
 var img;  // Declare variable 'img'.
 var video=[];
 var videostate=[true, true, true, true, true, true, true, true, true, true, true, false, false, false, true, true, true, true, true, true, true, true, true, true, true];
-var gridwidth=settings_imgx;
-var gridheight=settings_imgy;
+var gridwidth=settings_imgw;
+var gridheight=settings_imgh;
 
 var current=0;
 
