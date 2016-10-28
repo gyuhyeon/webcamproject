@@ -28,7 +28,7 @@
 
   function applyCapture(data){
     //data:1,2,3
-    video[parseInt(data)+10] = loadImage("http://crowdvoteapp.com/capture"+(parseInt(data)+11)+".jpg#"+new Date().getTime());
+    video[parseInt(data)+10] = loadImage("http://crowdvoteapp.com/capture"+(parseInt(data)+11)+".jpg?t="+new Date().getTime());
     videostate[parseInt(data)+10] = true;
     document.getElementById('camera_'+data).style.display='none';
     //ensure canvas was updated, and POST print request only from userid 1(main)
