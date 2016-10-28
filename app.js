@@ -33,9 +33,6 @@ app.get('/stream1',function(req,res){
   pipe.on('error', function(){
     console.log('disconnected!');
   })
-  pipe.on('err', function(){
-    console.log('disconnected!!');
-  })
   req.on('close', function(){
     pipe.end();
   });
@@ -45,11 +42,29 @@ app.get('/stream1',function(req,res){
 });
 app.get('/stream2',function(req,res){
   var url="http://camera.nton.lviv.ua/mjpg/video.mjpg"
-  request(url).pipe(res);
+  var pipe=request(url).pipe(res);
+  pipe.on('error', function(){
+    console.log('disconnected!');
+  })
+  req.on('close', function(){
+    pipe.end();
+  });
+  req.on('end', function(){
+    pipe.end()
+  });
 });
 app.get('/stream3',function(req,res){
   var url="http://194.248.190.92/mjpg/video.mjpg"
-  request(url).pipe(res);
+  var pipe=request(url).pipe(res);
+  pipe.on('error', function(){
+    console.log('disconnected!');
+  })
+  req.on('close', function(){
+    pipe.end();
+  });
+  req.on('end', function(){
+    pipe.end()
+  });
 });
 //proxy seems to kill the server or at least slow it down a lot. changing to hosting the static images directly.
 /*
