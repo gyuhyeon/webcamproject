@@ -84,7 +84,12 @@
   //Whenever the server emits 'print', revert page to default.
   socket.on('print', function () {
     //alert('프린트가 완료되었습니다. 페이지가 리셋됩니다.');
-    window.location.reload();
+    if(userid==1){
+      window.location = 'http://crowdvoteapp.com/video.html';
+    }
+    else{
+      window.location.reload();
+    }
     /*
     for(var i=0; i<9; ++i){
       videostate[i]=true;

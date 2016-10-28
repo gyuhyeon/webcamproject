@@ -187,7 +187,7 @@ app.post('/print', function(req,res){
    io.sockets.emit('print');
 
    //need code to send request to raspberry pi for printing
-
+   //request.post('0.0.0.0/print');
   }
 
 });
