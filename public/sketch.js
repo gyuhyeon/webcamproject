@@ -5,15 +5,15 @@ var canvas;
 var img;  // Declare variable 'img'.
 var video=[];
 var videostate=[true, true, true, true, true, true, true, true, true, true, true, false, false, false, true, true, true, true, true, true, true, true, true, true, true];
-var gridwidth=180;
-var gridheight=180;
+var gridwidth=settings_imgx;
+var gridheight=settings_imgy;
 
 var current=0;
 
 
 function setup(){
-	canvas = createCanvas(900, 900);
-	canvas.position(50,50);
+	canvas = createCanvas(gridwidth*5, gridheight*5);
+	canvas.position(settings_cvx,settings_cvy);
 	for(var i=0; i<25; ++i){
 		/*
 		video[i] = createVideo(['https://dl.dropboxusercontent.com/u/90141299/catbowl.mov']);
@@ -53,7 +53,7 @@ function draw(){
 		}
 	}
 
-	
+
 	//image(img, 0, 0);
 }
 
