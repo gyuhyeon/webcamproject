@@ -27,7 +27,7 @@ app.use(express.static(__dirname + '/public'));
 
 //proxy from webcam server to avoid CORS complaining
 app.get('/stream1',function(req,res){
-  var url="http://camera.nton.lviv.ua/mjpg/video.mjpg"
+  var url="http://cam.linpro.no/mjpg/video.mjpg"
   //var url="http://122.46.145.125:18081/"
   var pipe=request(url).pipe(res);
   pipe.on('error', function(){
