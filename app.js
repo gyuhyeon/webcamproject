@@ -173,7 +173,7 @@ app.post('/print', function(req,res){
    var data = img.replace(/^data:image\/\w+;base64,/, "");
    var buf = new Buffer(data, 'base64');
    //sync so that capture emit can be sent when it's done
-   fs.writeFileSync('public/print.jpg', buf);
+   fs.writeFileSync('public/print.png', buf);
    console.log('print');
    io.sockets.emit('print');
 
