@@ -10,7 +10,7 @@ var fs = require('fs');
 
 var port=8000;
 server.listen(port);
-
+//fuckmylife
 // Routing
 app.use(bodyParser.json({limit:'20mb'}));
 //querystring : false, qs library : true
