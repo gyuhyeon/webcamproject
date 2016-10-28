@@ -18,6 +18,9 @@ app.use(bodyParser.urlencoded({extended: false, limit:'20mb'}));
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  if(req.url.indexOf('jpg')>=0){
+    res.header("Cache-Control", "max-age=0, must-revalidate");
+  }
   next();
 });
 app.use(express.static(__dirname + '/public'));
