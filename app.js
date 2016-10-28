@@ -29,7 +29,13 @@ app.use(express.static(__dirname + '/public'));
 app.get('/stream1',function(req,res){
   var url="http://camera.nton.lviv.ua/mjpg/video.mjpg"
   //var url="http://122.46.145.125:18081/"
-  request(url).pipe(res);
+  var pipe=request(url).pipe(res);
+  req.on('close', function(){
+    pipe.end();
+  });
+  req.on('end', function(){
+    pipe.end()
+  });
 });
 app.get('/stream2',function(req,res){
   var url="http://camera.nton.lviv.ua/mjpg/video.mjpg"
