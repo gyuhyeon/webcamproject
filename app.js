@@ -192,7 +192,7 @@ app.post('/print', function(req,res){
    fs.writeFileSync('public/print.png', buf);
    console.log('print');
    //printer on raspberry pi
-   python.run('printertest.py', {args:['localhost:8000/print.png']}, function(err, results){
+   python.run('printertest.py', function(err, results){
     if (err) throw err;
    });
    io.sockets.emit('print');
