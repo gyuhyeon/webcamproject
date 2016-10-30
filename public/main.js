@@ -54,6 +54,7 @@
 
 //this print function's url needs to be migrated to raspberry pi.
   function print(){
+    isPrinting=1;
     sleep(2000).then(() => {
 
       videostate[11]=false;
