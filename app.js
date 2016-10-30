@@ -39,12 +39,15 @@ app.get('/stream1',function(req,res){
     console.log('disconnected!');
   })
   req.on('close', function(){
+    console.log('disconnected!');
     pipe.end();
   });
   req.on('end', function(){
+    console.log('disconnected!');
     pipe.end()
   });
   req.on('finish', function(){
+    console.log('disconnected!');
     pipe.end()
   });
 });
