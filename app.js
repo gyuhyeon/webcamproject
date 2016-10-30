@@ -30,8 +30,8 @@ app.use(express.static(__dirname + '/public'));
 //proxy from webcam server to avoid CORS complaining
 app.get('/stream1',function(req,res){
   //URGENT CHANGE TO LOCAL(RASPBERRY PI IP ADDRESS + PORT)
-  var url="http://192.168.219.108:8081";
-  //var url="http://cam.linpro.no/mjpg/video.mjpg"
+  //var url="http://192.168.219.108:8081";
+  var url="http://cam.linpro.no/mjpg/video.mjpg"
   //var url="http://122.46.145.125:18081/"
   var ru=request(url);
   var pipe=ru.pipe(res);
@@ -42,19 +42,19 @@ app.get('/stream1',function(req,res){
     pipe.end();
     ru.end();
     res.end();
-    ru.push(null);
+    pipe.destroy();
   });
   req.on('end', function(){
     pipe.end();
     ru.end();
     res.end();
-    ru.push(null);
+    pipe.destroy();
   });
   req.on('finish', function(){
     pipe.end();
     ru.end();
     res.end();
-    ru.push(null);
+    pipe.destroy();
   });
 });
 app.get('/stream2',function(req,res){
