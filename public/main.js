@@ -57,6 +57,10 @@
 //this print function's url needs to be migrated to raspberry pi.
   function print(){
     isPrinting=1;
+    var t=document.getElementById('capture_button');
+    var tt=document.getElementById('capture_link');
+    t.src='wait.png';
+    t.href='';
     sleep(1000).then(() => {
 
       videostate[11]=false;
@@ -106,6 +110,7 @@
   socket.on('print', function () {
     //alert('프린트가 완료되었습니다. 페이지가 리셋됩니다.');
     if(userid==1){
+      window.location.reload();
       //window.location = 'video.html';
     }
     else{
