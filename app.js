@@ -32,7 +32,7 @@ app.get('/stream1',function(req,res){
   //var url="http://192.168.219.108:8081";
   var url="http://cam.linpro.no/mjpg/video.mjpg"
   //var url="http://122.46.145.125:18081/"
-  var ru=request(url);
+  var ru=http.request(url);
   var pipe=ru.pipe(res);
   pipe.on('error', function(){
     console.log('disconnected!');
@@ -41,21 +41,18 @@ app.get('/stream1',function(req,res){
     pipe.end();
     ru.end();
     res.end();
-    req.end();
     pipe.destroy();
   });
   req.on('end', function(){
     pipe.end();
     ru.end();
     res.end();
-    req.end();
     pipe.destroy();
   });
   req.on('finish', function(){
     pipe.end();
     ru.end();
     res.end();
-    req.end();
     pipe.destroy();
   });
 });
