@@ -60,7 +60,10 @@
     var t=document.getElementById('capture_button');
     var tt=document.getElementById('capture_link');
     t.src='wait.png';
-    t.href='';
+    t.style.left='793px';
+    t.style.width='324px';
+    t.style.height='60px';
+    tt.href='';
     sleep(1000).then(() => {
 
       videostate[11]=false;
