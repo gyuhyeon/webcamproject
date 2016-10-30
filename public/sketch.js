@@ -4,7 +4,9 @@ new p5();
 var canvas;
 var img;  // Declare variable 'img'.
 var video=[];
-var videostate=[true, true, true, true, true, true, true, true, true, true, true, false, false, false, true, true, true, true, true, true, true, true, true, true, true];
+//DESIGN CHANGE REQUEST
+//var videostate=[true, true, true, true, true, true, true, true, true, true, true, false, false, false, true, true, true, true, true, true, true, true, true, true, true];
+var videostate=[true, true, true, true, true, true, true, true, true, true, true, false, true, true, true, true, true, true, true, true, true, true, true, true, true];
 var gridwidth=settings_imgw;
 var gridheight=settings_imgh;
 
