@@ -5,6 +5,7 @@
   //document.getElementById("mainimgframe").src='http://crowdvoteapp.com/stream'+userid;
 
   var socket = io();
+  var isPrinting=0;
 
   function capture(){
     var c = document.createElement('canvas');
@@ -35,7 +36,13 @@
     
     //not sure, but I think draw() seems to be having problems due to loadImage being async? -> (hopefully) solved by making draw() more safe
     draw();
+
+    /* DESIGN CHANGE REQUEST
     if(videostate[11]==true&&videostate[12]==true&&videostate[13]==true&&userid==1&& typeof canvas != 'undefined'){
+      print();
+    }
+    */
+    if(videostate[11]==true && typeof canvas != 'undefined' && userid==1 && isPrinting!=1){
       print();
     }
     
@@ -50,8 +57,12 @@
     sleep(2000).then(() => {
 
       videostate[11]=false;
+
+      /* DESIGN CHANGE REQUEST
       videostate[12]=false;
       videostate[13]=false;
+      */
+
       $.ajax({
        type:"POST",
        url:"print",
@@ -69,10 +80,16 @@
   // Socket events
 
   socket.on('init', function (data) {
+
+    /* DESIGN CHANGE REQUEST
     for(var i=0; i<3; ++i){
       if(data.videostatus[i]==true){
         applyCapture(i+1);
       }
+    }
+    */
+    if(data.videostatus[0]==true){
+      applyCapture(1)
     }
   });
 

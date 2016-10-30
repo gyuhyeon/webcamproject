@@ -172,7 +172,9 @@ var videostatus = [false, false, false];
 
 //this part needs to be migrated to raspberry pi.
 app.post('/print', function(req,res){
-  if(videostatus[0]==true&&videostatus[1]==true&&videostatus[2]==true){
+  //DESIGN CHANGE REQUEST
+  //if(videostatus[0]==true&&videostatus[1]==true&&videostatus[2]==true){
+  if(videostatus[0]==true){
    //reset videostatus
    videostatus = [false, false, false];
    //saving the incoming image
