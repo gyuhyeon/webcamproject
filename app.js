@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({extended: false, limit:'20mb'}));
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  if(req.url.indexOf('jpg')>=0){
+  if(req.url.indexOf('capture12.jpg')>=0){
     res.header("Cache-Control", "no-cache");
   }
   next();
