@@ -29,7 +29,9 @@
 
   function applyCapture(data){
     //data:1,2,3
-    video[parseInt(data)+10] = loadImage("http://crowdvoteapp.com/capture"+(parseInt(data)+11)+".jpg?t="+new Date().getTime());
+    //URGENT CHANGE TO LOCAL
+    //video[parseInt(data)+10] = loadImage("http://crowdvoteapp.com/capture"+(parseInt(data)+11)+".jpg?t="+new Date().getTime());
+    video[parseInt(data)+10] = loadImage("capture"+(parseInt(data)+11)+".jpg?t="+new Date().getTime());
     videostate[parseInt(data)+10] = true;
     document.getElementById('camera_'+data).style.display='none';
     //ensure canvas was updated, and POST print request only from userid 1(main)
@@ -55,7 +57,7 @@
 //this print function's url needs to be migrated to raspberry pi.
   function print(){
     isPrinting=1;
-    sleep(2000).then(() => {
+    sleep(1000).then(() => {
 
       videostate[11]=false;
 
@@ -103,7 +105,7 @@
   socket.on('print', function () {
     //alert('프린트가 완료되었습니다. 페이지가 리셋됩니다.');
     if(userid==1){
-      window.location = 'http://crowdvoteapp.com/video.html';
+      window.location = 'video.html';
     }
     else{
       window.location.reload();

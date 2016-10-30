@@ -3,6 +3,8 @@ var app = express();
 var http = require('http');
 var server = http.createServer(app);
 var io = require('socket.io')(server);
+//printer on raspberry pi
+var python = require('python-shell');
 
 var request = require('request');
 var bodyParser = require('body-parser');
@@ -27,8 +29,11 @@ app.use(express.static(__dirname + '/public'));
 
 //proxy from webcam server to avoid CORS complaining
 app.get('/stream1',function(req,res){
+  //URGENT CHANGE TO LOCAL(RASPBERRY PI IP ADDRESS + PORT)
+  //var url="192.168.0.0:8081";
   var url="http://cam.linpro.no/mjpg/video.mjpg"
   //var url="http://122.46.145.125:18081/"
+
   var pipe=request(url).pipe(res);
   pipe.on('error', function(){
     console.log('disconnected!');
@@ -186,6 +191,10 @@ app.post('/print', function(req,res){
    //sync so that capture emit can be sent when it's done
    fs.writeFileSync('public/print.png', buf);
    console.log('print');
+   //printer on raspberry pi
+   python.run('printertest.py', {args:['localhost:8000/print.png']}, function(err, results){
+    if (err) throw err;
+   });
    io.sockets.emit('print');
 
    //need code to send request to raspberry pi for printing

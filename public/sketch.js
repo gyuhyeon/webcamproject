@@ -23,7 +23,9 @@ function setup(){
 		video[i].hide();
 		*/
 		if(videostate[i]==true)
-			video[i] = loadImage("http://crowdvoteapp.com/capture"+(i+1)+".jpg");
+			//URGENT CHANGE TO LOCAL
+			//video[i] = loadImage("http://crowdvoteapp.com/capture"+(i+1)+".jpg");
+			video[i] = loadImage("capture"+(i+1)+".jpg");
 	}
 
 	// static/local video or some shit *wait, this shouldn't be external links like this. It should be done by proxy...
@@ -83,8 +85,9 @@ function mousePressed() {
     print(data);
   });*/
 }
-
+/*
 function keyPressed() {
   if (keyCode === ENTER)
   	save(canvas, 'output.jpg');
 }
+*/
