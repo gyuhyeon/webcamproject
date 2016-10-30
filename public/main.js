@@ -15,7 +15,7 @@
     c.style.display='none';
     document.body.appendChild(c);
     var ctx = c.getContext('2d');
-    ctx.drawImage(img, 0, 0, img.width, img.height);
+    ctx.drawImage(img, settings_cvx+settings_imgw*2, settings_cvy+settings_imgh*3, img.width, img.height);
     $.ajax({
       type:"POST",
       url:"capture",
