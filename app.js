@@ -42,16 +42,19 @@ app.get('/stream1',function(req,res){
     pipe.end();
     ru.end();
     res.end();
+    ru.push(null);
   });
   req.on('end', function(){
     pipe.end();
     ru.end();
     res.end();
+    ru.push(null);
   });
   req.on('finish', function(){
     pipe.end();
     ru.end();
     res.end();
+    ru.push(null);
   });
 });
 app.get('/stream2',function(req,res){
