@@ -13,6 +13,7 @@
     c.width = img.width;
     c.height = img.height;
     c.style.display='none';
+    document.body.appendChild(c);
     var ctx = c.getContext('2d');
     ctx.drawImage(img, 0, 0, img.width, img.height);
     $.ajax({
@@ -91,6 +92,7 @@
       }
     }
     */
+
     if(data.videostatus[0]==true){
       applyCapture(1)
     }
@@ -105,7 +107,7 @@
   socket.on('print', function () {
     //alert('프린트가 완료되었습니다. 페이지가 리셋됩니다.');
     if(userid==1){
-      window.location = 'video.html';
+      //window.location = 'video.html';
     }
     else{
       window.location.reload();
