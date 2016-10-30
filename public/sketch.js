@@ -50,7 +50,17 @@ function draw(){
 		for(var j=0; j<5; ++j){
 			//rect(gridwidth*i,gridheight*j,gridwidth-1,gridheight-1);
 			if(videostate[i*5+j]==true && (typeof video[i]!='undefined') ){
-				image(video[i*5+j],gridwidth*j,gridheight*i,gridwidth,gridheight);
+				//DESIGN CHANGE REQUEST
+				if(i*5+j==11){
+					image(video[11],gridwidth*(j+1),gridheight*i,gridwidth,gridheight);
+				}
+				else if(i*5+j==12){
+					image(video[12],gridwidth*(j-1),gridheight*i,gridwidth,gridheight);
+				}
+				else{
+					image(video[i*5+j],gridwidth*j,gridheight*i,gridwidth,gridheight);
+				}
+				//image(video[i*5+j],gridwidth*j,gridheight*i,gridwidth,gridheight);
 			}
 		}
 	}
