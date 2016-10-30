@@ -26,15 +26,17 @@ app.use(function(req, res, next) {
   next();
 });
 app.use(express.static(__dirname + '/public'));
-
+//last resort?
+var pipe;
+var ru;
 //proxy from webcam server to avoid CORS complaining
 app.get('/stream1',function(req,res){
   //URGENT CHANGE TO LOCAL(RASPBERRY PI IP ADDRESS + PORT)
   //var url="http://192.168.219.108:8081";
   var url="http://cam.linpro.no/mjpg/video.mjpg"
   //var url="http://122.46.145.125:18081/"
-  var ru=request(url);
-  var pipe=ru.pipe(res);
+  ru=request(url);
+  pipe=ru.pipe(res);
   pipe.on('error', function(){
     console.log('disconnected!');
   })
